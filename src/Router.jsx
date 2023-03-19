@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useMemo } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import AuthorizationPage from './pages/AuthorizationPage'
 import FeedPage from './pages/FeedPage'
-import LoadingPage from './pages/LoadingPage'
-import ProfilePage from './pages/ProfilePage'
-
 import { authUser } from './store/userSlice'
+import LoadingPage from './pages/LoadingPage'
+import Layout from './layout/Layout'
+import RegistrationPage from './pages/RegistrationPage'
+import PostCreationPage from './pages/PostCreationPage'
 
 function Router() {
   const dispatch = useDispatch()
   const { user, isLoading } = useSelector((state) => state.user)
 
-  const email = localStorage.getItem('userEmail') || ''
-  const password = localStorage.getItem('userPassword') || ''
+  const email = useMemo(() => localStorage.getItem('userEmail') || '', [])
+  const password = useMemo(() => localStorage.getItem('userPassword') || '', [])
 
   useEffect(() => {
     if (email && password) {
@@ -22,17 +23,29 @@ function Router() {
     }
   }, [dispatch, email, password])
 
+  const isLoadingPage = !user && isLoading && email && password
+  const isAuthorizationPage = !user && !isLoading && !email && !password
+
   return (
     <BrowserRouter>
       <Routes>
-        {!user && isLoading && email && password && (
-          <Route path="*" element={<LoadingPage />} />
+        {isLoadingPage && <Route path="*" element={<LoadingPage />} />}
+        {user && (
+          <>
+            <Route path="/settings" element={<div>Settings</div>} />
+            <Route path="/" element={<Layout />}>
+              <Route index element={<FeedPage />} />
+              <Route path="profile" element={<FeedPage />} />
+              <Route path="create-post" element={<PostCreationPage />} />
+            </Route>
+          </>
         )}
-        {user && <Route path="/" element={<FeedPage />} />}
-        {!user && !isLoading && !email && !password && (
-          <Route path="*" element={<AuthorizationPage />} />
+        {isAuthorizationPage && (
+          <>
+            <Route path="/registration" element={<RegistrationPage />} />
+            <Route path="*" element={<AuthorizationPage />} />
+          </>
         )}
-        {/* <Route path="/ProfilePage" element={<ProfilePage />} /> */}
       </Routes>
     </BrowserRouter>
   )

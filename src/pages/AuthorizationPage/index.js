@@ -1,3 +1,3 @@
-import AuthorizationPage from './AuthorizationPage'
+import AuthorizationPage from "./AuthorizationPage";
 
-export default AuthorizationPage
+export default AuthorizationPage;

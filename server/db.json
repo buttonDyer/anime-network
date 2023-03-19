@@ -3,7 +3,9 @@
     {
       "id": 1,
       "email": "1",
-      "password": "1"
+      "password": "1",
+      "avatar": "https://media.tenor.com/zitHoOUx9N0AAAAC/dva-overwatch.gif",
+      "name": "super dva"
     },
     {
       "id": 2,
@@ -14,6 +16,26 @@
       "id": 3,
       "email": "3",
       "password": "3"
+    }
+  ],
+  "posts": [
+    {
+      "postImage": "https://www.esports.net/wp-content/uploads/2023/01/miss-fortune-arcade.jpg",
+      "postTitle": "MF",
+      "postText": "lol champion with nice soul ",
+      "id": 1
+    },
+    {
+      "postImage": "https://images.hdqwalls.com/wallpapers/anime-girl-big-eyes-tattoo-mask-0a.jpg",
+      "postTitle": "some anime",
+      "postText": "i dont watch anime, but it gotta be here",
+      "id": 2
+    },
+    {
+      "postImage": "https://rare-gallery.com/mocahbig/410318-anime-anime-girls-fan-art-video-games-video-game-art.jpg",
+      "postTitle": "one more test",
+      "postText": "im the test",
+      "id": 3
     }
   ]
 }

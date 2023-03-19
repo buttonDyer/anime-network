@@ -11,19 +11,48 @@ export const authUser = createAsyncThunk(
       )
 
       if (!response.ok) {
-        throw new Error('Server error')
+        throw new Error('Server error!')
       }
 
       const data = await response.json()
 
       if (data.length < 1) {
-        throw new Error('There is no such an user')
+        throw new Error('There is no such user!')
       }
 
       localStorage.setItem('userEmail', email)
       localStorage.setItem('userPassword', password)
 
-      return data
+      return data[0]
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
+
+export const registerUser = createAsyncThunk(
+  'user/registerUser',
+  async function ({ email, password }, { rejectWithValue, dispatch }) {
+    try {
+      const response = await fetch(`${endpoint}/users`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application-json' },
+        body: JSON.stringify({ email, password }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Server error!')
+      }
+
+      const data = await response.json()
+
+      if (data.length < 1) {
+        throw new Error('There is no such user!')
+      }
+
+      dispatch(authUser({ email, password }))
+
+      return data[0]
     } catch (error) {
       return rejectWithValue(error.message)
     }
@@ -34,6 +63,8 @@ const userSlice = createSlice({
   name: 'user',
   initialState: { user: null, isLoading: false, isError: false, error: '' },
   reducers: {
+    // Всегда синхронные
+    // state иммутабельный
     logOut(state) {
       state.user = null
       localStorage.setItem('userEmail', '')
@@ -56,8 +87,13 @@ const userSlice = createSlice({
       state.user = action.payload
     },
   },
+  // extraReducers: {
+  //   [userRegister.pending]: (state) => {
+  //     state.isLoading
+  //   }
+  // }
 })
 
-export const { signIn, logOut } = userSlice.actions
+export const { logOut } = userSlice.actions
 
 export default userSlice.reducer

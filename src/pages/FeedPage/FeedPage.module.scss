@@ -1,23 +1,31 @@
 .feedPage {
-  position: relative;
-
-  width: 100%;
-  min-height: 100vh;
-}
-
-.container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  padding: 0 20px;
-  max-width: 1192px;
-  width: 100%;
-}
-.content {
   width: 100%;
   background-color: white;
   border-radius: 20px;
   min-height: 300px;
+
+  .posts {
+    padding: 50px;
+
+    .link {
+      background-color: hsla(238, 22%, 27%, 1);
+      border-radius: 10px;
+      height: 56px;
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  justify-content: center;
+
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
 }
