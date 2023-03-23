@@ -1,0 +1,33 @@
+.singlePostPage {
+  width: 100%;
+  height: min-content;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+}
+
+.user {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+
+  .imageWrapper {
+    width: 256px;
+    min-width: 256px;
+    height: 256px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}
+
+.link {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+}

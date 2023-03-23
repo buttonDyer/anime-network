@@ -30,21 +30,26 @@ function PostCreationPage() {
           <div className={s.inputs}>
             <Input
               label="Image url"
+              variant="settingsInput"
               value={postImage}
               onChange={(e) => setPostImage(e.target.value)}
             />
             <Input
               label="Title"
+              variant="settingsInput"
               value={postTitle}
               onChange={(e) => setPostTitle(e.target.value)}
             />
             <Input
               label="Text"
+              variant="settingsTextarea"
               value={postText}
               onChange={(e) => setPostText(e.target.value)}
             />
           </div>
-          <Button type="submit">Create</Button>
+          <Button className={s.button} type="submit">
+            Create
+          </Button>
         </form>
       </div>
     </div>

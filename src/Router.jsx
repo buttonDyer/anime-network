@@ -9,6 +9,10 @@ import LoadingPage from './pages/LoadingPage'
 import Layout from './layout/Layout'
 import RegistrationPage from './pages/RegistrationPage'
 import PostCreationPage from './pages/PostCreationPage'
+import ProfilePage from './pages/ProfilePage'
+import SettingsPage from './pages/SettingsPage/SettingsPage'
+import FriendsPage from './pages/FriendsPage'
+import SinglePostPage from './pages/SinglePostPage/SinglePostPage'
 
 function Router() {
   const dispatch = useDispatch()
@@ -32,11 +36,14 @@ function Router() {
         {isLoadingPage && <Route path="*" element={<LoadingPage />} />}
         {user && (
           <>
-            <Route path="/settings" element={<div>Settings</div>} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="/" element={<Layout />}>
               <Route index element={<FeedPage />} />
-              <Route path="profile" element={<FeedPage />} />
+              <Route path="feed" element={<FeedPage />} />
+              <Route path="profile" element={<ProfilePage />} />
               <Route path="create-post" element={<PostCreationPage />} />
+              <Route path="friends" element={<FriendsPage />} />
+              <Route path="/feed/:postId" element={<SinglePostPage />} />
             </Route>
           </>
         )}

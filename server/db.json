@@ -2,10 +2,11 @@
   "users": [
     {
       "id": 1,
-      "email": "1",
+      "email": "123",
       "password": "1",
       "avatar": "https://media.tenor.com/zitHoOUx9N0AAAAC/dva-overwatch.gif",
-      "name": "super dva"
+      "name": "Roma",
+      "description": "DONT TUCH FOLLOW BUTTON"
     },
     {
       "id": 2,
@@ -16,6 +17,24 @@
       "id": 3,
       "email": "3",
       "password": "3"
+    },
+    {
+      "id": 4
+    },
+    {
+      "email": "123",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "email": "321",
+      "password": "321",
+      "id": 6
+    },
+    {
+      "email": "123",
+      "password": "09",
+      "id": 7
     }
   ],
   "posts": [
@@ -36,6 +55,30 @@
       "postTitle": "one more test",
       "postText": "im the test",
       "id": 3
+    },
+    {
+      "postImage": "https://i.pinimg.com/736x/34/63/ef/3463ef4db87430144490645360f737bf.jpg",
+      "postTitle": "anime",
+      "postText": "another one test",
+      "id": 4
+    },
+    {
+      "postImage": "https://cdn.vox-cdn.com/thumbor/4E98u_RfYxa8pkRK79CyPClFABY=/0x0:1147x647/1200x800/filters:focal(483x233:665x415)/cdn.vox-cdn.com/uploads/chorus_image/image/70742090/Jotaro.0.jpeg",
+      "postTitle": "jojo",
+      "postText": "pose",
+      "id": 5
+    },
+    {
+      "postImage": "https://datepsychology.com/wp-content/uploads/2022/09/gigachad.jpg",
+      "postTitle": "gigachad",
+      "postText": "do pushups 100500 times per an hour",
+      "id": 6
+    },
+    {
+      "postImage": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
+      "postTitle": "is it anime? ",
+      "postText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "id": 7
     }
   ]
 }

@@ -39,9 +39,7 @@ function AuthorizationPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Button type="submit" textBtn="Sign in">
-          {isLoading ? 'Loading...' : 'Sign in'}
-        </Button>
+        <Button type="submit">{isLoading ? 'Loading...' : 'Sign in'}</Button>
       </form>
     </AuthContainer>
   )

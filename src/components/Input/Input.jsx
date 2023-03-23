@@ -10,14 +10,15 @@ function Input({
   className = '',
   variant,
 }) {
-  const inputClassName = `${s.label} ${className} ${s[variant]}`
+  const labelClassName = `${s.label} ${className} ${s[variant]}`
+  const inputClassName = `${s.input} ${className} ${s[variant]}`
 
   return (
-    <label className={inputClassName}>
+    <label className={labelClassName}>
       {label}
       <input
         type="text"
-        className={s.input}
+        className={inputClassName}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

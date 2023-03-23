@@ -1,16 +1,22 @@
-import React from 'react'
+import { React } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import s from './PostCard.module.scss'
 
-function PostCard({ img, title, text }) {
+function PostCard({ id, img, title }) {
+  const { user } = useSelector((state) => state.user)
+
   return (
-    <div className={s.card}>
+    <Link to={`/feed/${id}`} className={s.link}>
       <div className={s.imageWrapper}>
         <img className="fill" src={img} alt="" />
+        <div className={s.overlayText}>
+          <div className={s.name}>{user.name ? user.name : user.email}</div>
+          <div className={s.title}>{title}</div>
+        </div>
       </div>
-      <div className={s.title}>{title}</div>
-      <div className={s.text}>{text}</div>
-    </div>
+    </Link>
   )
 }
 

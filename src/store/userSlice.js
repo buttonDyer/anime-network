@@ -36,7 +36,7 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await fetch(`${endpoint}/users`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application-json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       })
 
@@ -46,13 +46,50 @@ export const registerUser = createAsyncThunk(
 
       const data = await response.json()
 
-      if (data.length < 1) {
-        throw new Error('There is no such user!')
-      }
-
       dispatch(authUser({ email, password }))
 
       return data[0]
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
+
+export const updateUserData = createAsyncThunk(
+  'user/updateUserData',
+  async function (
+    { avatar, name, description, email },
+    { rejectWithValue, getState }
+  ) {
+    const user = getState().user.user
+
+    try {
+      const userBody = {}
+
+      if (avatar) {
+        userBody.avatar = avatar
+      }
+      if (name) {
+        userBody.name = name
+      }
+      if (description) {
+        userBody.description = description
+      }
+      if (email) {
+        userBody.email = email
+      }
+
+      const userDataResponse = await fetch(`${endpoint}/users/${user.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userBody),
+      })
+
+      if (!userDataResponse.ok) {
+        throw new Error('Server error!')
+      }
+
+      return userDataResponse.json()
     } catch (error) {
       return rejectWithValue(error.message)
     }
@@ -86,12 +123,36 @@ const userSlice = createSlice({
       state.error = ''
       state.user = action.payload
     },
+    [updateUserData.pending]: (state) => {
+      state.isLoading = true
+    },
+    [updateUserData.rejected]: (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.error = action.payload
+    },
+    [updateUserData.fulfilled]: (state, action) => {
+      state.isLoading = false
+      state.isError = false
+      state.error = ''
+      state.user = action.payload
+      localStorage.setItem('userEmail', action.payload.email)
+    },
+    [registerUser.pending]: (state) => {
+      state.isLoading = true
+    },
+    [registerUser.rejected]: (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.error = action.payload
+    },
+    [registerUser.fulfilled]: (state, action) => {
+      state.isLoading = false
+      state.isError = false
+      state.error = ''
+      state.user = action.payload
+    }
   },
-  // extraReducers: {
-  //   [userRegister.pending]: (state) => {
-  //     state.isLoading
-  //   }
-  // }
 })
 
 export const { logOut } = userSlice.actions

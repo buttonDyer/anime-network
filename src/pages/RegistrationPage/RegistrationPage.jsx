@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom'
 
 function RegistrationPage() {
   const dispatch = useDispatch()
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -23,7 +23,9 @@ function RegistrationPage() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(registerUser({ email, password })).then(() => navigate('/'))
+    dispatch(registerUser({ email, password })).then(() => {
+      navigate('/')
+    })
   }
 
   return (
