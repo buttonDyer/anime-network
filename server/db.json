@@ -6,7 +6,7 @@
       "password": "1",
       "avatar": "https://media.tenor.com/zitHoOUx9N0AAAAC/dva-overwatch.gif",
       "name": "Roma",
-      "description": "DONT TUCH FOLLOW BUTTON"
+      "description": "DONT TUCH FOLLOW BUTTON, PLS"
     },
     {
       "id": 2,
@@ -35,6 +35,11 @@
       "email": "123",
       "password": "09",
       "id": 7
+    },
+    {
+      "email": "6",
+      "password": "11",
+      "id": 8
     }
   ],
   "posts": [
