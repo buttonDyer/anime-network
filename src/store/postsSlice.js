@@ -2,8 +2,46 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const endpoint = process.env.REACT_APP_ENDPOINT || ''
 
+export const getPosts = createAsyncThunk(
+  'posts/getPosts',
+  async ({ userId, limit, page, isExpanded }, { rejectWithValue }) => {
+    try {
+      let queryParams = ''
+      if (userId) {
+        queryParams += `userId=${userId}`
+      }
+      if (limit) {
+        if (queryParams) queryParams += '&'
+        queryParams += `_limit=${limit}`
+      }
+      if (page) {
+        if (queryParams) queryParams += '&'
+        queryParams += `_page=${page}`
+      }
+      if (isExpanded) {
+        if (queryParams) queryParams += '&'
+        queryParams += `_expand=user`
+      }
+
+      const response = await fetch(
+        `${endpoint}/posts${queryParams ? `?${queryParams}` : ''}`
+      )
+
+      if (!response.ok) {
+        throw new Error('Server error')
+      }
+
+      const data = await response.json()
+
+      return data
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
+
 export const addPost = createAsyncThunk(
-  'post/savePost',
+  'posts/savePost',
   async ({ postImage, postTitle, postText }) => {
     try {
       const response = await fetch(`${endpoint}/posts`, {
@@ -38,6 +76,9 @@ export const postsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(getPosts.fulfilled, (state, action) => {
+        state.posts = action.payload
+      })
       .addCase(addPost.pending, (state) => {
         state.loading = true
         state.error = null

@@ -1,14 +1,20 @@
 import { React } from 'react'
+
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+
+import { Link, useParams } from 'react-router-dom'
 
 import s from './PostCard.module.scss'
 
-function PostCard({ id, img, title }) {
+function PostCard({ img, title }) {
   const { user } = useSelector((state) => state.user)
+  const { postId } = useParams()
+  const posts = useSelector((state) => Object.values(state.posts))
+  const post = posts.find((post) => post.id === postId)
+
 
   return (
-    <Link to={`/feed/${id}`} className={s.link}>
+    <Link to={`/feed/${post.id}`} className={s.link} key={post.id}>
       <div className={s.imageWrapper}>
         <img className="fill" src={img} alt="" />
         <div className={s.overlayText}>

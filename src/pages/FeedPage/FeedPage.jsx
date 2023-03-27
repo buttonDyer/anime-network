@@ -3,7 +3,7 @@ import { React } from 'react'
 import PostsGrid from '../../components/PostsGrid'
 
 function FeedPage() {
-  return <PostsGrid />
+  return <PostsGrid allUsersPosts={true} showFeedElements={true} />
 }
 
 export default FeedPage

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import Button from '../../components/Button'
+import PostsGrid from '../../components/PostsGrid'
 
 import s from './ProfilePage.module.scss'
 
@@ -29,6 +30,7 @@ function ProfilePage() {
           Settings
         </Link>
       </div>
+      <PostsGrid allUsersPosts={false} userId={user.id} showFeedElements={false} />
     </div>
   )
 }

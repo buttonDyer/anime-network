@@ -151,7 +151,7 @@ const userSlice = createSlice({
       state.isError = false
       state.error = ''
       state.user = action.payload
-    }
+    },
   },
 })
 

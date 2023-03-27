@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo } from 'react'
+import { React, useEffect, useMemo } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { authUser } from './store/userSlice'
+
 import AuthorizationPage from './pages/AuthorizationPage'
 import FeedPage from './pages/FeedPage'
-import { authUser } from './store/userSlice'
 import LoadingPage from './pages/LoadingPage'
 import Layout from './layout/Layout'
 import RegistrationPage from './pages/RegistrationPage'
@@ -18,8 +19,11 @@ function Router() {
   const dispatch = useDispatch()
   const { user, isLoading } = useSelector((state) => state.user)
 
-  const email = useMemo(() => localStorage.getItem('userEmail') || '', [])
-  const password = useMemo(() => localStorage.getItem('userPassword') || '', [])
+  const email = useMemo(() => localStorage.getItem('userEmail') || '', [user])
+  const password = useMemo(
+    () => localStorage.getItem('userPassword') || '',
+    [user]
+  )
 
   useEffect(() => {
     if (email && password) {
