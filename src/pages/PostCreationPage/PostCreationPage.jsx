@@ -9,6 +9,10 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { addPost } from '../../store/postsSlice'
 
+import { useNavigate } from 'react-router-dom'
+
+import { useSnackbar } from 'notistack'
+
 function PostCreationPage() {
   const dispatch = useDispatch()
 
@@ -19,10 +23,15 @@ function PostCreationPage() {
   const [postTitle, setPostTitle] = useState('')
   const [postText, setPostText] = useState('')
 
+  const { enqueueSnackbar } = useSnackbar()
+  const navigate = useNavigate()
+
   const onSubmit = (e) => {
     e.preventDefault()
 
     dispatch(addPost({ userId: userId, postImage, postTitle, postText }))
+    enqueueSnackbar('Post created successfully!', { variant: 'success' })
+    navigate(-1)
   }
 
   return (

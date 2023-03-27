@@ -1,5 +1,7 @@
 import { React, useState } from 'react'
 
+import { useSnackbar } from 'notistack'
+
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
@@ -12,6 +14,8 @@ import { logOut, updateUserData } from '../../store/userSlice'
 function SettingsPage() {
   const dispatch = useDispatch()
 
+  const { isLoading } = useSelector((state) => state.user)
+
   const { user } = useSelector((state) => state.user)
 
   const [email, setEmail] = useState(user.email || '')
@@ -19,16 +23,22 @@ function SettingsPage() {
   const [name, setName] = useState(user.name || '')
   const [description, setDescription] = useState(user.description || '')
 
+  const { enqueueSnackbar } = useSnackbar()
+
   const onSubmit = (e) => {
     e.preventDefault()
 
     dispatch(updateUserData({ email, avatar, name, description }))
+
+    enqueueSnackbar('User data updated', { variant: 'success' })
   }
 
   const handleLogOut = (e) => {
     e.preventDefault()
 
     dispatch(logOut())
+
+    enqueueSnackbar('Logged out', { variant: 'info' })
   }
 
   return (
@@ -41,7 +51,7 @@ function SettingsPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Button type="submit">Save</Button>
+          <Button type="submit">{isLoading ? 'Loading...' : 'Save'}</Button>
         </form>
         <form className={s.form} onSubmit={onSubmit}>
           <Input
@@ -49,7 +59,7 @@ function SettingsPage() {
             value={avatar}
             onChange={(e) => setAvatar(e.target.value)}
           />
-          <Button type="submit">Save</Button>
+          <Button type="submit">{isLoading ? 'Loading...' : 'Save'}</Button>
         </form>
         <form className={s.form} onSubmit={onSubmit}>
           <Input
@@ -57,7 +67,7 @@ function SettingsPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <Button type="submit">Save</Button>
+          <Button type="submit">{isLoading ? 'Loading...' : 'Save'}</Button>
         </form>
         <form className={s.form} onSubmit={onSubmit}>
           <Input
@@ -65,10 +75,10 @@ function SettingsPage() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <Button type="submit">Save</Button>
+          <Button type="submit">{isLoading ? 'Loading...' : 'Save'}</Button>
         </form>
         <Button className={s.button} variant="red" onClick={handleLogOut}>
-          Log out
+          {isLoading ? 'Loading...' : 'Log out'}
         </Button>
       </div>
     </div>
