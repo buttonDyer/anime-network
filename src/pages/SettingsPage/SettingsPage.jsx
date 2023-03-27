@@ -30,7 +30,7 @@ function SettingsPage() {
 
     dispatch(updateUserData({ email, avatar, name, description }))
 
-    enqueueSnackbar('User data updated', { variant: 'success' })
+    enqueueSnackbar('Data updated', { variant: 'success' })
   }
 
   const handleLogOut = (e) => {
