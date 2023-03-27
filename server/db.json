@@ -106,6 +106,13 @@
       "postText": "Hello? Im 9nth user",
       "id": 8,
       "userId": 9
+    },
+    {
+      "userId": 1,
+      "postImage": "https://img.freepik.com/premium-vector/young-girl-anime-style-character-vector-illustration-design-manga-anime-girl_147933-100.jpg?w=2000",
+      "postTitle": "фыва",
+      "postText": "фыва",
+      "id": 9
     }
   ]
 }

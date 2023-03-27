@@ -15,7 +15,6 @@ function PostsGrid({ allUsersPosts, userId, showFeedElements }) {
 
   const [page, setPage] = useState(1)
   const dispatch = useDispatch()
-  console.log('posts: ', posts)
 
   useEffect(() => {
     dispatch(

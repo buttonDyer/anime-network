@@ -5,12 +5,15 @@ import Button from '../../components/Button'
 
 import s from './PostCreationPage.module.scss'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { addPost } from '../../store/postsSlice'
 
 function PostCreationPage() {
   const dispatch = useDispatch()
+
+  const user = useSelector((state) => state.user.user)
+  const userId = user ? user.id : null
 
   const [postImage, setPostImage] = useState('')
   const [postTitle, setPostTitle] = useState('')
@@ -19,7 +22,7 @@ function PostCreationPage() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(addPost({ postImage, postTitle, postText }))
+    dispatch(addPost({ userId: userId, postImage, postTitle, postText }))
   }
 
   return (

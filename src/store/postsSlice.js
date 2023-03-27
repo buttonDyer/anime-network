@@ -42,12 +42,13 @@ export const getPosts = createAsyncThunk(
 
 export const addPost = createAsyncThunk(
   'posts/savePost',
-  async ({ postImage, postTitle, postText }) => {
+  async ({ postImage, postTitle, postText, userId }) => {
     try {
       const response = await fetch(`${endpoint}/posts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          userId,
           postImage,
           postTitle,
           postText,

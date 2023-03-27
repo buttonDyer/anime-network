@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 import Button from '../../components/Button'
@@ -30,7 +30,11 @@ function ProfilePage() {
           Settings
         </Link>
       </div>
-      <PostsGrid allUsersPosts={false} userId={user.id} showFeedElements={false} />
+      <PostsGrid
+        allUsersPosts={false}
+        userId={user.id}
+        showFeedElements={false}
+      />
     </div>
   )
 }
