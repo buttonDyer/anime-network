@@ -1,28 +1,24 @@
-.postsGrid {
+.singlePostPage {
   width: 100%;
   background-color: white;
   border-radius: 20px;
   min-height: 300px;
 
-  .posts {
-    padding: 50px;
+  .title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 125%;
+    color: hsla(238, 22%, 27%, 1);
+    margin-bottom: 53px;
+  }
 
-    .title {
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 125%;
-      color: hsla(238, 22%, 27%, 1);
-      margin-bottom: 53px;
-    }
-
-    .link {
-      background-color: hsla(238, 22%, 27%, 1);
-      border-radius: 10px;
-      height: 56px;
-      color: white;
-      font-size: 16px;
-      padding: 18px 56px;
-    }
+  .link {
+    background-color: hsla(238, 22%, 27%, 1);
+    border-radius: 10px;
+    height: 56px;
+    color: white;
+    font-size: 16px;
+    padding: 18px 56px;
   }
 }
 

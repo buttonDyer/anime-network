@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "email": "123",
+      "email": "1",
       "password": "1",
       "avatar": "https://media.tenor.com/zitHoOUx9N0AAAAC/dva-overwatch.gif",
       "name": "Roman",
@@ -113,6 +113,13 @@
       "postTitle": "anime again",
       "postText": "ah ****, here we go again",
       "id": 9
+    },
+    {
+      "userId": 1,
+      "postImage": "https://www.gamespot.com/a/uploads/screen_kubrick/1603/16030002/4111613-mha-01.png",
+      "postTitle": "Anime",
+      "postText": "My hero academy",
+      "id": 10
     }
   ]
 }

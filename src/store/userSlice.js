@@ -98,7 +98,14 @@ export const updateUserData = createAsyncThunk(
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: { user: null, isLoading: false, isError: false, error: '' },
+  initialState: {
+    user: null,
+    isLoading: false,
+    isError: false,
+    error: '',
+    id: null,
+    name: '',
+  },
   reducers: {
     // Всегда синхронные
     // state иммутабельный

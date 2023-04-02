@@ -58,6 +58,7 @@ export const addPost = createAsyncThunk(
         throw new Error('Server error!')
       }
       const data = await response.json()
+
       return data
     } catch (error) {
       throw new Error('Failed to save post!')

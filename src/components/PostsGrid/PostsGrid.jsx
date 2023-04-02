@@ -13,7 +13,10 @@ import { getPosts } from '../../store/postsSlice'
 function PostsGrid({ allUsersPosts, userId, showFeedElements }) {
   const { posts } = useSelector((state) => state.posts)
 
+  const { user } = useSelector((state) => state.user)
+
   const [page, setPage] = useState(1)
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -70,7 +73,9 @@ function PostsGrid({ allUsersPosts, userId, showFeedElements }) {
               img={elem.postImage}
               title={elem.postTitle}
               text={elem.postText}
+              id={elem.id}
               key={elem.id}
+              userName={user.id === elem.userId ? user.name : 'ANON'}
             />
           ))}
         </div>

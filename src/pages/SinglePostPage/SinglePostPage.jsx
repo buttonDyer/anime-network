@@ -1,19 +1,13 @@
-import { React } from 'react'
-
+import React from 'react'
+import { useSelector } from 'react-redux'
 import s from './SinglePostPage.module.scss'
 
-import { Link } from 'react-router-dom'
-
 function SinglePostPage() {
+  const { posts } = useSelector((state) => state.posts)
+
   return (
-    <div className={s.postsGrid}>
-      <div className={s.posts}>
-        <div className={s.title}>Recent posts</div>
-        <Link to="/create-post" className={s.link}>
-          Add new post
-        </Link>
-        <div className={s.grid}></div>
-      </div>
+    <div className={s.singlePostPage}>
+      <img src="" alt="" />
     </div>
   )
 }

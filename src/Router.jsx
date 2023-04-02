@@ -47,7 +47,7 @@ function Router() {
               <Route path="profile" element={<ProfilePage />} />
               <Route path="create-post" element={<PostCreationPage />} />
               <Route path="friends" element={<FriendsPage />} />
-              <Route path="/feed/:postId" element={<SinglePostPage />} />
+              <Route path="/feed/:id" element={<SinglePostPage />} />
             </Route>
           </>
         )}
