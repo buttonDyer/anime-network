@@ -40,3 +40,14 @@
   //   grid-template-columns: 1fr;
   // }
 }
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 70px;
+
+  .button {
+    width: 100%;
+    max-width: 218px;
+  }
+}

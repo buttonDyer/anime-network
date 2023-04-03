@@ -23,6 +23,46 @@
       "avatar": "https://avatars.mds.yandex.net/get-kino-vod-films-gallery/28788/47e2fd514411e18b76af786d7417062d/100x64_3",
       "name": "Random",
       "description": "Im random test user. dont think i survive here"
+    },
+    {
+      "email": "qwer@gmail.com",
+      "password": "12",
+      "id": 10,
+      "avatar": "https://img.freepik.com/free-photo/front-view-funny-cute-dog-concept_23-2148786532.jpg?w=2000",
+      "name": "Dog",
+      "description": "BURK BURK. im loosing my mind here"
+    },
+    {
+      "id": 11,
+      "email": "11@gmail.com",
+      "password": "11",
+      "avatar": "https://www.looper.com/img/gallery/the-untold-truth-of-cartoon-network/intro-1662813840.jpg",
+      "name": "Not Roman",
+      "description": "DONT TUCH FOLLOW BUTTON, PLS"
+    },
+    {
+      "id": 12,
+      "email": "12@gmail.com",
+      "password": "12",
+      "avatar": "https://pub-static.fotor.com/assets/projects/pages/6bf412e2225d4906b3d699a3a0a4308b/300w/fotor-cf1c671a4f3e4134b3e67c5d00de68ce.jpg",
+      "name": "User",
+      "description": "DONT TUCH FOLLOW BUTTON, PLS"
+    },
+    {
+      "email": "13@gmail.com",
+      "password": "13",
+      "id": 13,
+      "avatar": "https://avatars.mds.yandex.net/get-kino-vod-films-gallery/28788/47e2fd514411e18b76af786d7417062d/100x64_3",
+      "name": "Random",
+      "description": "Im random test user. dont think i survive here"
+    },
+    {
+      "email": "14@gmail.com",
+      "password": "14",
+      "id": 14,
+      "avatar": "https://img.freepik.com/free-photo/front-view-funny-cute-dog-concept_23-2148786532.jpg?w=2000",
+      "name": "Dog",
+      "description": "BURK BURK. im loosing my mind here"
     }
   ],
   "posts": [
@@ -95,6 +135,13 @@
       "postTitle": "Anime",
       "postText": "My hero academy",
       "id": 10
+    },
+    {
+      "userId": 10,
+      "postImage": "https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C.jpg?resize=640,426",
+      "postTitle": "my gf",
+      "postText": "she's a slouchy dog.",
+      "id": 11
     }
   ]
 }

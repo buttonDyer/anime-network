@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import s from './PostsGrid.module.scss'
 
 import PostCard from '../PostCard'
+import Button from '../../components/Button'
 
 import { Link } from 'react-router-dom'
 
@@ -12,11 +13,10 @@ import { getPosts } from '../../store/postsSlice'
 
 function PostsGrid({ allUsersPosts, userId, showFeedElements }) {
   const { posts } = useSelector((state) => state.posts)
-
   const { user } = useSelector((state) => state.user)
 
   const [page, setPage] = useState(1)
-  
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function PostsGrid({ allUsersPosts, userId, showFeedElements }) {
     dispatch(
       getPosts({
         userId: allUsersPosts ? undefined : userId,
-        limit: 1,
+        limit: 9,
         page: page - 1,
         isExpanded: true,
       })
@@ -45,17 +45,19 @@ function PostsGrid({ allUsersPosts, userId, showFeedElements }) {
   }
 
   const onNext = () => {
+    if (posts.length < page * 9) return
     setPage((prev) => prev + 1)
 
     dispatch(
       getPosts({
         userId: allUsersPosts ? undefined : userId,
-        limit: 1,
+        limit: 9,
         page: page + 1,
         isExpanded: true,
       })
     )
   }
+
   return (
     <div className={s.postsGrid}>
       <div className={s.posts}>
@@ -79,6 +81,14 @@ function PostsGrid({ allUsersPosts, userId, showFeedElements }) {
             />
           ))}
         </div>
+      </div>
+      <div className={s.buttons}>
+        <Button className={s.button} onClick={onPrev}>
+          Prev
+        </Button>
+        <Button className={s.button} onClick={onNext}>
+          Next
+        </Button>
       </div>
     </div>
   )

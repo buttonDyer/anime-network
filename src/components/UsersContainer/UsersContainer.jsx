@@ -27,6 +27,7 @@ function UsersContainer({ children, isFriends }) {
         </div>
         {children}
       </div>
+     
     </div>
   )
 }
