@@ -96,6 +96,22 @@ export const updateUserData = createAsyncThunk(
   }
 )
 
+export const getAllUsers = createAsyncThunk(
+  'user/getAllUsers',
+  async function (_, { rejectWithValue }) {
+    try {
+      const response = await fetch(`${endpoint}/users`)
+      if (!response.ok) {
+        throw new Error('Server error!')
+      }
+      const data = await response.json()
+      return data
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  }
+)
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -105,6 +121,7 @@ const userSlice = createSlice({
     error: '',
     id: null,
     name: '',
+    allUsers: [],
   },
   reducers: {
     // Всегда синхронные
@@ -113,6 +130,9 @@ const userSlice = createSlice({
       state.user = null
       localStorage.setItem('userEmail', '')
       localStorage.setItem('userPassword', '')
+    },
+    setAllUsers(state, action) {
+      state.allUsers = action.payload
     },
   },
   extraReducers: {
@@ -158,6 +178,20 @@ const userSlice = createSlice({
       state.isError = false
       state.error = ''
       state.user = action.payload
+    },
+    [getAllUsers.pending]: (state) => {
+      state.isLoading = true
+    },
+    [getAllUsers.rejected]: (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.error = action.payload
+    },
+    [getAllUsers.fulfilled]: (state, action) => {
+      state.isLoading = false
+      state.isError = false
+      state.error = ''
+      state.allUsers = action.payload
     },
   },
 })
