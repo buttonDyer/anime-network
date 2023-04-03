@@ -52,12 +52,14 @@ function PostCreationPage() {
               value={postTitle}
               onChange={(e) => setPostTitle(e.target.value)}
             />
-            <Input
-              label="Text"
-              variant="settingsTextarea"
-              value={postText}
-              onChange={(e) => setPostText(e.target.value)}
-            />
+            <label className={s.labelTextarea}>
+              Text
+              <textarea
+                className={s.textarea}
+                value={postText}
+                onChange={(e) => setPostText(e.target.value)}
+              />
+            </label>
           </div>
           <Button className={s.button} type="submit">
             Create

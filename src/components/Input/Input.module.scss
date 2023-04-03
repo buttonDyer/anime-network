@@ -3,8 +3,7 @@
   flex-direction: column;
   gap: 5px;
 
-  &.settingsInput,
-  &.settingsTextarea {
+  &.settingsInput {
     width: 100%;
     max-width: 900px;
     display: grid;
@@ -17,10 +16,6 @@
     line-height: 125%;
     color: hsla(0, 0%, 0%, 1);
   }
-  &.settingsTextarea {
-    display: grid;
-    align-items: start;
-  }
 }
 
 .input {
@@ -32,15 +27,4 @@
     border-radius: 30px;
     max-width: 263px;
   }
-
-  &.settingsTextarea {
-    display: grid;
-    align-items: start;
-    border-radius: 30px;
-    max-width: 779px;
-    min-height: 242px;
-  }
-  // .&red {
-
-  // }
 }

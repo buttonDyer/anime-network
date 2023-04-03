@@ -9,6 +9,7 @@ function Input({
   onChange,
   className = '',
   variant,
+  type = 'text',
 }) {
   const labelClassName = `${s.label} ${className} ${s[variant]}`
   const inputClassName = `${s.input} ${className} ${s[variant]}`
@@ -17,7 +18,7 @@ function Input({
     <label className={labelClassName}>
       {label}
       <input
-        type="text"
+        type={type}
         className={inputClassName}
         placeholder={placeholder}
         value={value}
