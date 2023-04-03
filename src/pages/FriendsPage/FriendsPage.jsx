@@ -1,12 +1,16 @@
 import { React } from 'react'
 
+import UsersContainer from '../../components/UsersContainer'
+
 import s from './FriendsPage.module.scss'
 
 function FriendsPage() {
   return (
-    <div className={s.friendsPage}>
-      <div className={s.container}>Friends page</div>
-    </div>
+    <UsersContainer isFriends={true}>
+      <div className={s.friendsPage}>
+        <div className={s.container}>Friends page</div>
+      </div>
+    </UsersContainer>
   )
 }
 

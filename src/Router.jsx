@@ -14,6 +14,7 @@ import ProfilePage from './pages/ProfilePage'
 import SettingsPage from './pages/SettingsPage/SettingsPage'
 import FriendsPage from './pages/FriendsPage'
 import SinglePostPage from './pages/SinglePostPage/SinglePostPage'
+import AllUsersPage from './pages/AllUsersPage/AllUsersPage'
 
 function Router() {
   const dispatch = useDispatch()
@@ -47,6 +48,7 @@ function Router() {
               <Route path="profile" element={<ProfilePage />} />
               <Route path="create-post" element={<PostCreationPage />} />
               <Route path="friends" element={<FriendsPage />} />
+              <Route path="all" element={<AllUsersPage />} />
               <Route path="/feed/:id" element={<SinglePostPage />} />
             </Route>
           </>
