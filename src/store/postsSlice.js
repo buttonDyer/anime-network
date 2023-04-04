@@ -66,6 +66,47 @@ export const addPost = createAsyncThunk(
   }
 )
 
+export const editPost = createAsyncThunk(
+  'posts/editPost',
+  async ({ id, postImage, postTitle, postText, userId }) => {
+    try {
+      const response = await fetch(`${endpoint}/posts/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId,
+          postImage,
+          postTitle,
+          postText,
+        }),
+      })
+      if (!response.ok) {
+        throw new Error('Server error!')
+      }
+      const data = await response.json()
+
+      return data
+    } catch (error) {
+      throw new Error('Failed to edit post!')
+    }
+  }
+)
+
+export const deletePost = createAsyncThunk('posts/deletePost', async (id) => {
+  try {
+    const response = await fetch(`${endpoint}/posts/${id}`, {
+      method: 'DELETE',
+    })
+    if (!response.ok) {
+      throw new Error('Server error!')
+    }
+
+    return id
+  } catch (error) {
+    throw new Error('Failed to delete post!')
+  }
+})
+
 const initialState = {
   posts: [],
   loading: false,
@@ -90,6 +131,37 @@ export const postsSlice = createSlice({
         state.posts.push(action.payload)
       })
       .addCase(addPost.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+      .addCase(editPost.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(editPost.fulfilled, (state, action) => {
+        state.loading = false
+        const updatedPost = action.payload
+        const index = state.posts.findIndex(
+          (post) => post.id === updatedPost.id
+        )
+        if (index !== -1) {
+          state.posts[index] = updatedPost
+        }
+      })
+      .addCase(editPost.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.payload
+      })
+      .addCase(deletePost.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(deletePost.fulfilled, (state, action) => {
+        state.loading = false
+        const deletedPostId = action.payload
+        state.posts = state.posts.filter((post) => post.id !== deletedPostId)
+      })
+      .addCase(deletePost.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload
       })
