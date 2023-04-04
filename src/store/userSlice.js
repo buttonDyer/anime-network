@@ -122,7 +122,6 @@ const userSlice = createSlice({
     id: null,
     name: '',
     allUsers: [],
-    following: [],
   },
   reducers: {
     // Всегда синхронные
