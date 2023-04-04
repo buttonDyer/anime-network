@@ -15,6 +15,8 @@ import s from './SinglePostPage.module.scss'
 function SinglePostPage() {
   const { id } = useParams()
 
+  const currentUser = useSelector((state) => state.user.user)
+
   const dispatch = useDispatch()
 
   const { enqueueSnackbar } = useSnackbar()
@@ -55,6 +57,8 @@ function SinglePostPage() {
     setIsEditMode(false)
   }
 
+  const isAuthorizedUser = currentUser && currentUser.id === post.userId
+
   return (
     <div className={s.singlePostPage}>
       <div className={s.container}>
@@ -81,39 +85,42 @@ function SinglePostPage() {
           )}
           <div className={s.name}>{user.name ? user.name : user.email}</div>
         </div>
-        <div className={s.buttons}>
-          {!isEditMode && (
-            <>
-              <Button
-                className={s.button}
-                variant="red"
-                onClick={handleDeleteClick}
-              >
-                Delete
-              </Button>
-              <Button className={s.button} onClick={() => setIsEditMode(true)}>
-                Edit
-              </Button>
-            </>
-          )}
-          {isEditMode && (
-            <>
-              <Button
-                className={s.button}
-                variant="red"
-                onClick={handleCancelClick}
-              >
-                Cancel
-              </Button>
-              <Button className={s.button} onClick={handleEditClick}>
-                Save
-              </Button>
-            </>
-          )}
-        </div>
+        {isAuthorizedUser && (
+          <div className={s.buttons}>
+            {!isEditMode && (
+              <>
+                <Button
+                  className={s.button}
+                  variant="red"
+                  onClick={handleDeleteClick}
+                >
+                  Delete
+                </Button>
+                <Button className={s.button} onClick={() => setIsEditMode(true)}>
+                  Edit
+                </Button>
+              </>
+            )}
+            {isEditMode && (
+              <>
+                <Button
+                  className={s.button}
+                  variant="red"
+                  onClick={handleCancelClick}
+                >
+                  Cancel
+                </Button>
+                <Button className={s.button} onClick={handleEditClick}>
+                  Save
+                </Button>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
 }
+
 
 export default SinglePostPage
