@@ -1,0 +1,140 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "123@gmail.com",
+      "password": "1",
+      "avatar": "https://media.tenor.com/zitHoOUx9N0AAAAC/dva-overwatch.gif",
+      "name": "Roman",
+      "description": "DONT TUCH FOLLOW BUTTON, PLS"
+    },
+    {
+      "id": 2,
+      "email": "456@gmail.com",
+      "password": "2",
+      "avatar": "https://pub-static.fotor.com/assets/projects/pages/6bf412e2225d4906b3d699a3a0a4308b/300w/fotor-cf1c671a4f3e4134b3e67c5d00de68ce.jpg",
+      "name": "User",
+      "description": "DONT TUCH FOLLOW BUTTON, PLS"
+    },
+    {
+      "email": "789@gmail.com",
+      "password": "2345",
+      "id": 9,
+      "avatar": "https://avatars.mds.yandex.net/get-kino-vod-films-gallery/28788/47e2fd514411e18b76af786d7417062d/100x64_3",
+      "name": "Random",
+      "description": "Im random test user. dont think i survive here"
+    },
+    {
+      "email": "qwer@gmail.com",
+      "password": "12",
+      "id": 10,
+      "avatar": "https://img.freepik.com/free-photo/front-view-funny-cute-dog-concept_23-2148786532.jpg?w=2000",
+      "name": "Dog",
+      "description": "BURK BURK. im loosing my mind here"
+    },
+    {
+      "id": 11,
+      "email": "11@gmail.com",
+      "password": "11",
+      "avatar": "https://www.looper.com/img/gallery/the-untold-truth-of-cartoon-network/intro-1662813840.jpg",
+      "name": "Not Roman",
+      "description": "DONT TUCH FOLLOW BUTTON, PLS"
+    },
+    {
+      "id": 12,
+      "email": "12@gmail.com",
+      "password": "12",
+      "avatar": "https://pub-static.fotor.com/assets/projects/pages/6bf412e2225d4906b3d699a3a0a4308b/300w/fotor-cf1c671a4f3e4134b3e67c5d00de68ce.jpg",
+      "name": "User",
+      "description": "DONT TUCH FOLLOW BUTTON, PLS"
+    },
+    {
+      "email": "13@gmail.com",
+      "password": "13",
+      "id": 13,
+      "avatar": "https://avatars.mds.yandex.net/get-kino-vod-films-gallery/28788/47e2fd514411e18b76af786d7417062d/100x64_3",
+      "name": "Random",
+      "description": "Im random test user. dont think i survive here"
+    },
+    {
+      "email": "14@gmail.com",
+      "password": "14",
+      "id": 14,
+      "avatar": "https://img.freepik.com/free-photo/front-view-funny-cute-dog-concept_23-2148786532.jpg?w=2000",
+      "name": "Dog",
+      "description": "BURK BURK. im loosing my mind here"
+    }
+  ],
+  "posts": [
+    {
+      "userId": 1,
+      "postImage": "https://www.esports.net/wp-content/uploads/2023/01/miss-fortune-arcade.jpg",
+      "postTitle": "MF",
+      "postText": "lol champion with nice soul",
+      "id": 1
+    },
+    {
+      "postImage": "https://images.hdqwalls.com/wallpapers/anime-girl-big-eyes-tattoo-mask-0a.jpg",
+      "postTitle": "some anime",
+      "postText": "i dont watch anime, but it gotta be here",
+      "id": 2,
+      "userId": 1
+    },
+    {
+      "postImage": "https://rare-gallery.com/mocahbig/410318-anime-anime-girls-fan-art-video-games-video-game-art.jpg",
+      "postTitle": "one more test",
+      "postText": "im the test",
+      "id": 3,
+      "userId": 1
+    },
+    {
+      "postImage": "https://i.pinimg.com/736x/34/63/ef/3463ef4db87430144490645360f737bf.jpg",
+      "postTitle": "anime",
+      "postText": "another one test",
+      "id": 4,
+      "userId": 1
+    },
+    {
+      "postImage": "https://cdn.vox-cdn.com/thumbor/4E98u_RfYxa8pkRK79CyPClFABY=/0x0:1147x647/1200x800/filters:focal(483x233:665x415)/cdn.vox-cdn.com/uploads/chorus_image/image/70742090/Jotaro.0.jpeg",
+      "postTitle": "jojo",
+      "postText": "pose",
+      "id": 5,
+      "userId": 1
+    },
+    {
+      "postImage": "https://datepsychology.com/wp-content/uploads/2022/09/gigachad.jpg",
+      "postTitle": "gigachad",
+      "postText": "do pushups 100500 times per an hour",
+      "id": 6,
+      "userId": 1
+    },
+    {
+      "postImage": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
+      "postTitle": "is it anime? ",
+      "postText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "id": 7,
+      "userId": 9
+    },
+    {
+      "userId": 1,
+      "postImage": "https://img.freepik.com/premium-vector/young-girl-anime-style-character-vector-illustration-design-manga-anime-girl_147933-100.jpg?w=2000",
+      "postTitle": "anime again",
+      "postText": "ah ****, here we go again",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "postImage": "https://www.gamespot.com/a/uploads/screen_kubrick/1603/16030002/4111613-mha-01.png",
+      "postTitle": "Anime",
+      "postText": "My hero academy \nyeap, anime again",
+      "id": 10
+    },
+    {
+      "userId": 10,
+      "postImage": "https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C.jpg?resize=640,426",
+      "postTitle": "my gf",
+      "postText": "she's a slouchy dog.",
+      "id": 11
+    }
+  ]
+}
