@@ -1,0 +1,59 @@
+.loadingComponent {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinnerWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  position: relative;
+
+  .spinner {
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .planeIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .icon {
+      color: white;
+      font-size: 34px;
+    }
+  }
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  .title {
+    color: white;
+    font-size: 16px;
+  }
+
+  .subtitle {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}

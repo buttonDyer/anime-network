@@ -34,6 +34,15 @@ export const registerUser = createAsyncThunk(
   'user/registerUser',
   async function ({ email, password }, { rejectWithValue, dispatch }) {
     try {
+      const checkResponse = await fetch(`${endpoint}/users?email=${email}`)
+      if (!checkResponse.ok) {
+        throw new Error('Server error!')
+      }
+      const checkData = await checkResponse.json()
+      if (checkData.length > 0) {
+        throw new Error('Email already exists!')
+      }
+    
       const response = await fetch(`${endpoint}/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -53,7 +62,8 @@ export const registerUser = createAsyncThunk(
       return rejectWithValue(error.message)
     }
   }
-)
+);
+
 
 export const updateUserData = createAsyncThunk(
   'user/updateUserData',
